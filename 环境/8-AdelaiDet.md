@@ -9,6 +9,7 @@
 git clone https://github.com/aim-uofa/AdelaiDet.git
 
 # 编译 AdelaiDet
+conda activate fcos2
 cd AdelaiDet
 python setup.py build develop
 
