@@ -49,6 +49,26 @@ nvcc -V
 # 查看CUDNN是否安装成功
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
+
+# 或者在虚拟环境中配置cuda和cudnn
+# 【链接】初识CV
+# https://zhuanlan.zhihu.com/p/367740437
+# 安装指定版本的cuda
+conda install cudatoolkit=10.1
+# 安装指定版本的cudnn
+conda install cudnn=7.6.5
+# 或者，不指定cudnn的版本，系统会自动找到适配版本的cudnn
+conda install cudnn
+
+
+## 一般情况下，为了使网络可以在gpu上运行，此时需要再安装对应cuda和cudnn的pytorch
+conda install pytorch==1.7.1 torchvision==0.8.2 cudatoolkit=10.1 -c pytorch 
+
+# 检查cuda，torch是否可用
+python
+import torch
+print(torch.__version__)
+print(torch.cuda.is_available())
 ```
 
 5 安装cocoapi
@@ -75,6 +95,9 @@ sudo python setup.py install
 ```
 cd detectroon2
 python setup.py build develop
+
+#编译时遇到pip没有找到，查找安装即可
+
 ```
 
 ​			此时运行的老版本的detectron2，会遇到一个“AT_CHECK”不兼容的bug，此时 ；解决方案：在出现这个bug的文件头部添加用户宏：
@@ -84,6 +107,17 @@ python setup.py build develop
 ```
 
 ​			再次编译，即可通过编译；
+
+7 安装显示图像所用的opencv
+
+```
+pip install opencv-python
+# 安装成功后，查看是否安装成功
+python
+import cv2
+```
+
+
 
 # 2 运行标准测试用例
 
