@@ -1,7 +1,7 @@
 # Basic Libraries
 ## Ubuntu
 - pcl 
-  '''
+  '''Shell
   sudo apt install libpcl-dev
   '''
 - opencv
