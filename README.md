@@ -1,7 +1,9 @@
 # Basic Libraries
 ## Ubuntu
 - pcl 
-  '''sudo apt install libpcl-dev'''
+  '''
+  sudo apt install libpcl-dev
+  '''
 - opencv
 - boost 
 - gdal
