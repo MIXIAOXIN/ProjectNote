@@ -21,9 +21,14 @@ Loss函数：Loss = L + {正则项}，正则项前还有超参数$\alpha$
 1. Without Normalization：
 
 2. Batch Normalization：
-
    Batch normalization with proper batch size makes the network less sensitive to the initial weight scale；But it relies on batch size。However，batch size is hard to select sometimes。
-
+   
+   So in summary, the order of using batch normalization and dropout is:
+   这个顺序是最开始的网络层设计顺序，关于各层的放置顺序，现在还有争议。
+   -> CONV/FC -> BatchNorm -> ReLu(or other activation) -> Dropout -> CONV/FC ->
+   Batch Norm的作用：
+   -（1）batch norm常被用在convolution layer后，当无batch norm时，后方的sigmoid等激活函数在值较大的部分可能遇到梯度弥散，当有batch norm后数值一般被归一化到某个有效范围；
+   -（2）
     
 
 3. Layer Normalization：
